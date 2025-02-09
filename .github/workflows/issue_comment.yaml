@@ -24,6 +24,9 @@ jobs:
   comment-with-api:
     runs-on: ubuntu-latest
     steps:
+      - name: Check API URL
+        run: echo "http://api.github.com/repos/YacqubAdan/{REPOSITORY}/issues/{ISSUE_NUMBER}/comments"
+        
       - name: Create comment with api
         run: |
          gh api -X POST \
