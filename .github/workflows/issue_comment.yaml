@@ -25,12 +25,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Check API URL
-        run: echo "http://api.github.com/repos/YacqubAdan/${{ github.event.repository.name }}/issues/${{ github.event.issue.number }}/comments"
+        run: echo "http://api.github.com/repos/YacqubAdan/${REPOSITORY}/issues/${ISSUE_NUMBER}/comments"
 
       - name: Create comment with api
         run: |
          gh api -X POST \
-          https://api.github.com/repos/YacqubAdan/${{ github.event.repository.name }}/issues/${{ github.event.issue.number }}/comments \
+          https://api.github.com/repos/YacqubAdan/${REPOSITORY}/issues/${ISSUE_NUMBER}/comments \
           -f body='
           Comment but from the API call not action
           '
